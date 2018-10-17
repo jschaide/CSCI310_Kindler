@@ -45,6 +45,7 @@
         android:layout_marginStart="140dp"
         android:layout_marginLeft="140dp"
         android:layout_marginTop="310dp"
+        android:onClick="goToLoginPage"
         android:text="Login"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="242dp" />

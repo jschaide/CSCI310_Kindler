@@ -22,7 +22,11 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Signup" />
+<<<<<<< HEAD
         <activity android:name=".profile"></activity>
+=======
+        <activity android:name=".Login"></activity>
+>>>>>>> d2b082690c9f44af392a59e32eee3c922903fd09
     </application>
 
 </manifest>

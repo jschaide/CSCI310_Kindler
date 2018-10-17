@@ -14,28 +14,29 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Signup extends AppCompatActivity implements View.OnClickListener {
+public class Login extends AppCompatActivity implements View.OnClickListener {
     private Button buttonRegister;
     private EditText editTextEmail;
     private EditText editTextPassword;
-    private ProgressDialog progressDialog;
-    private FirebaseAuth fireBaseAuth;
 
+    private ProgressDialog progressDialog;
+
+    private FirebaseAuth fireBaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_login);
 
         fireBaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
-        buttonRegister = (Button) findViewById(R.id.buttonRegister);
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        buttonRegister = (Button) findViewById(R.id.buttonLogin);
+        editTextEmail = (EditText) findViewById(R.id.editTextEmail2);
+        editTextPassword = (EditText) findViewById(R.id.editTextPassword2);
 
         buttonRegister.setOnClickListener(this);
     }
 
-    private void registerUser() {
+    private void loginUser() {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
@@ -52,7 +53,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
 //        progressDialog.setMessage("Registering User...");
 //        progressDialog.show();
 
-        fireBaseAuth.createUserWithEmailAndPassword(email, password)
+        fireBaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -68,11 +69,11 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
                         }
                     }
                 });
-
     }
 
     @Override
     public void onClick(View view) {
-        registerUser();
+        loginUser();
     }
+
 }
