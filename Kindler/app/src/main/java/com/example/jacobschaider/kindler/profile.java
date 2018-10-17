@@ -54,7 +54,7 @@ public class profile extends AppCompatActivity {
         //textView.setText(usernameString);
         //profilePic = fireBaseAuth.getProfilePic;
         //ImageView imageView = (ImageView) findViewById(R.id.profilepic);
-       // imageView.setImageURI(profilePic);
+        // imageView.setImageURI(profilePic);
         //imageView.setImageURI(https://i.pinimg.com/originals/0a/d2/ec/0ad2ece0cc0c29da963391e5d0e8b521.jpg);
 
         //Get all the posts that the user has listed from database
@@ -64,7 +64,7 @@ public class profile extends AppCompatActivity {
 
         //when you click the post button, an intent is made and the screen will go to the post
         // activity
-        post =(Button)findViewById(R.id.post);
+        post = (Button) findViewById(R.id.post);
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,5 +74,5 @@ public class profile extends AppCompatActivity {
         });
 
 
-
+    }
 }
