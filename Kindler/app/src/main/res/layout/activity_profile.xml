@@ -7,6 +7,7 @@
     tools:context=".profile">
 
     <ListView
+        android:id="@+id/listOfPosts"
         android:layout_width="500dp"
         android:layout_height="300dp"
         android:layout_alignParentEnd="true"
