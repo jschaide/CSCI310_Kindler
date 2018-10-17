@@ -15,16 +15,23 @@ import android.widget.TextView;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class profile extends AppCompatActivity {
     private Button post;
-    private FirebaseAuth fireBaseAuth;
     private String usernameString;
     private Uri profilePic;
+    private ArrayList<Post> databasePosts;
     private ArrayAdapter<Post> ListedPosts;
     private ListView lv;
+    private FirebaseAuth fAuth;
    // private DatabaseHelper helper;
 
     @Override
@@ -32,34 +39,37 @@ public class profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-
         //connect to database
-        fireBaseAuth = FirebaseAuth.getInstance();
-        fireBaseAuth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("AllPosts/Posts");
 
+        // Attach a listener to read the data at our posts reference
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    databasePosts.add(snapshot.getValue(Post.class));
+                }
             }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
         });
 
-        Post p = new Post();
-        p.title = "Harry Potter";
-        ListedPosts.add(p);
 
-
-        //Get username and profile pic from database
-        //usernameString = fireBaseAuth.getUsername;
+        //Get username from database
+        usernameString = fAuth.getCurrentUser().getDisplayName();
         TextView textView = (TextView) findViewById(R.id.username);
-        textView.setText("Natalie Pearson");
-        //textView.setText(usernameString);
-        //profilePic = fireBaseAuth.getProfilePic;
-        //ImageView imageView = (ImageView) findViewById(R.id.profilepic);
-        // imageView.setImageURI(profilePic);
-        //imageView.setImageURI(https://i.pinimg.com/originals/0a/d2/ec/0ad2ece0cc0c29da963391e5d0e8b521.jpg);
+        textView.setText(usernameString);
+
+        //get profile pic from database
+        profilePic = fAuth.getCurrentUser().getPhotoUrl();
+        ImageView imageView = (ImageView) findViewById(R.id.profilepic);
+        imageView.setImageURI(profilePic);
+
 
         //Get all the posts that the user has listed from database
         //set the list view to the new adapter
-        //ListedPosts = new ArrayAdapter<Post>(this, android.R.layout.simple_dropdown_item_1line, helper.getPostsOfUser());
+        ListedPosts = new ArrayAdapter<Post>(this, android.R.layout.simple_dropdown_item_1line, databasePosts);
         lv.setAdapter(ListedPosts);
 
         //when you click the post button, an intent is made and the screen will go to the post
@@ -68,8 +78,8 @@ public class profile extends AppCompatActivity {
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Post.class);
-                startActivity(i);
+                //Intent i = new Intent(getApplicationContext(), MakePost.class);
+                //startActivity(i);
             }
         });
 
