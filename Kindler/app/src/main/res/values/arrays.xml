@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "posttypelist">
+        <item>@string/post_type1</item>
+        <item>@string/post_type2</item>
+    </string-array>
+</resources>
