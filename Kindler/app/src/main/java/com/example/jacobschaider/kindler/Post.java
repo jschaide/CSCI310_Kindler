@@ -1,6 +1,8 @@
 package com.example.jacobschaider.kindler;
 
-public class Post {
+import java.io.Serializable;
+
+public class Post implements Serializable {
     public boolean exchange;
     public boolean sell;
     public String title;
