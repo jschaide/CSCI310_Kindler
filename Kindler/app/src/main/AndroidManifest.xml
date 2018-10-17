@@ -22,8 +22,9 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Signup" />
-        <activity android:name=".profile"></activity>
-        <activity android:name=".Login"></activity>
+        <activity android:name=".profile" />
+        <activity android:name=".Login" />
+        <activity android:name=".UserPostProfile"></activity>
     </application>
 
 </manifest>

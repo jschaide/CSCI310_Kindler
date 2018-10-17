@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 public class profile extends AppCompatActivity {
@@ -47,8 +48,9 @@ public class profile extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                databasePosts = new ArrayList<Post>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    databasePosts.add(snapshot.getValue(Post.class));
+                   databasePosts.add(snapshot.getValue(Post.class));
                 }
             }
             @Override
@@ -57,12 +59,14 @@ public class profile extends AppCompatActivity {
 
 
         //Get username from database
+        fAuth = FirebaseAuth.getInstance();
         usernameString = fAuth.getCurrentUser().getDisplayName();
         TextView textView = (TextView) findViewById(R.id.username);
         textView.setText(usernameString);
 
         //get profile pic from database
         profilePic = fAuth.getCurrentUser().getPhotoUrl();
+        //this is wrong
         ImageView imageView = (ImageView) findViewById(R.id.profilepic);
         imageView.setImageURI(profilePic);
 
@@ -70,6 +74,7 @@ public class profile extends AppCompatActivity {
         //Get all the posts that the user has listed from database
         //set the list view to the new adapter
         ListedPosts = new ArrayAdapter<Post>(this, android.R.layout.simple_dropdown_item_1line, databasePosts);
+        lv = (ListView) findViewById(R.id.listOfPosts);
         lv.setAdapter(ListedPosts);
 
         //when you click the post button, an intent is made and the screen will go to the post
