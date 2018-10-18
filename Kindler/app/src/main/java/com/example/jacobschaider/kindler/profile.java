@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -76,6 +77,7 @@ public class profile extends AppCompatActivity {
         ListedPosts = new ArrayAdapter<Post>(this, android.R.layout.simple_dropdown_item_1line, databasePosts);
         lv = (ListView) findViewById(R.id.listOfPosts);
         lv.setAdapter(ListedPosts);
+        lv.setOnItemClickListener(goToBook);
 
         //when you click the post button, an intent is made and the screen will go to the post
         // activity
@@ -87,7 +89,14 @@ public class profile extends AppCompatActivity {
                 //startActivity(i);
             }
         });
-
-
     }
+
+    private AdapterView.OnItemClickListener goToBook = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            //go to postProfile
+            //Intent i = new Intent(getApplicationContext(), PostProfile.class);
+            //startActivity(i);
+        }
+    };
 }

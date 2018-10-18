@@ -33,6 +33,7 @@ public class UserPostProfile extends AppCompatActivity {
         DatabaseReference ref = database.getReference("AllPosts/Posts");
 
         // Attach a listener to read the data at our posts reference
+        //get all the interested users in the post
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
