@@ -7,7 +7,7 @@
     tools:context=".CreationPost">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/name"
         android:layout_width="381dp"
         android:layout_height="52dp"
         android:textSize="24sp"
@@ -16,10 +16,10 @@
         tools:text="Book to either sell or exchange:" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/EditTextName"
         android:layout_width="352dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/spinner"
+        android:layout_above="@+id/SpinnerFeedback"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="-78dp"
         android:ems="10"
@@ -29,7 +29,7 @@
         tools:text="Book Name" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/SpinnerFeedback"
         android:layout_width="121dp"
         android:layout_height="39dp"
         android:layout_alignParentStart="true"

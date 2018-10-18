@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +48,7 @@ public class CreationPost extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         sendFeedback();
+        System.out.println("Clicked success");
     }
 }
 
