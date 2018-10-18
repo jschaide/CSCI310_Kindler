@@ -14,7 +14,10 @@ public class Post implements Serializable {
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     public void addBookPost() {
-        DatabaseReference postsRef = database.getReference("/AllPosts");
-        postsRef.child(this.owner).setValue(this);
+
+        DatabaseReference postsRef = database.getReference().child("AllPosts");
+        postsRef.setValue(this);
+        //postsRef.child(this.owner).setValue(this);
+
     }
 }
