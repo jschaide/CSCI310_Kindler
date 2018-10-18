@@ -83,8 +83,8 @@ public class profile extends AppCompatActivity {
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i = new Intent(getApplicationContext(), MakePost.class);
-                //startActivity(i);
+                Intent i = new Intent(getApplicationContext(), CreationPost.class);
+                startActivity(i);
             }
         });
 
