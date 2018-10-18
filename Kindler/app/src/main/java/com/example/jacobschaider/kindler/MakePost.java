@@ -9,7 +9,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MakePost extends AppCompatActivity {
+
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,5 +38,17 @@ public class MakePost extends AppCompatActivity {
 
         final Spinner SpinnerFeedback = (Spinner) findViewById(R.id.SpinnerFeedback);
         String postType = SpinnerFeedback.getSelectedItem().toString();
+
+        Post post = new Post();
+        if (postType.equals("Sell")) {
+            post.sell = true;
+            post.exchange = false;
+        } else {
+            post.sell = false;
+            post.exchange = true;
+        }
+        post.title = name;
+        post.owner = firebaseAuth.getCurrentUser().getDisplayName();
+        post.addBookPost();
     }
 }
