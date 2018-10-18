@@ -24,7 +24,8 @@
         <activity android:name=".profile" />
         <activity android:name=".Login" />
         <activity android:name=".UserPostProfile" />
-        <activity android:name=".MakePost"
+        <activity android:name=".MakePost"/>
+        <activity android:name=".CreationPost"
             android:exported="true" />
     </application>
 
