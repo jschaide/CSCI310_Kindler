@@ -6,11 +6,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class CreationPost extends AppCompatActivity {
+public class CreationPost extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     @Override
@@ -19,18 +20,11 @@ public class CreationPost extends AppCompatActivity {
         setContentView(R.layout.activity_creation_post);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        Button button = (Button) findViewById(R.id.PostBookButton);
+        button.setOnClickListener(this);
     }
 
-    public void sendFeedback(View button) {
+    public void sendFeedback() {
         final EditText titleField = (EditText) findViewById(R.id.EditTextName);
         String name = titleField.getText().toString();
 
@@ -48,6 +42,11 @@ public class CreationPost extends AppCompatActivity {
         post.title = name;
         post.owner = firebaseAuth.getCurrentUser().getDisplayName();
         post.addBookPost();
+    }
+
+    @Override
+    public void onClick(View v) {
+        sendFeedback();
     }
 }
 
