@@ -16,9 +16,9 @@
     </string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_make_post">Create a Post</string>
-    <string name = "feedbacktitle">Add a book to either sell or exchange:</string>
-    <string name = "feedbackname">Post Title</string>
-    <string name = "post_type">Select type of post</string>
+    <string name="feedbacktitle">Add a book to either sell or exchange:</string>
+    <string name="feedbackname">Post Title</string>
+    <string name="post_type">Select type of post</string>
     <string name="post_type1">Sale</string>
     <string name="post_type2">Exchange</string>
     <string name="action_settings">Settings</string>
