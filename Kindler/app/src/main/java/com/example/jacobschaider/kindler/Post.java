@@ -1,5 +1,6 @@
 package com.example.jacobschaider.kindler;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -18,6 +19,14 @@ public class Post implements Serializable {
         DatabaseReference postsRef = database.getReference().child("AllPosts");
         postsRef.setValue(this);
         //postsRef.child(this.owner).setValue(this);
+
+    }
+
+    public void removePost() {
+        //implement
+    }
+
+    public void showInterest(FirebaseUser user) {
 
     }
 }

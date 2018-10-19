@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -37,6 +38,11 @@ public class profile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //This is the logged in user's profile page. They can see their username and picture as well
+        //as all the books they have currently listed. If a book is clicked on, the UserPostProfile
+        //page is loaded. The user can also add a post by clicking on the post button, taking them
+        //to the CreationPost page.
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
@@ -76,6 +82,19 @@ public class profile extends AppCompatActivity {
         ListedPosts = new ArrayAdapter<Post>(this, android.R.layout.simple_dropdown_item_1line, databasePosts);
         lv = (ListView) findViewById(R.id.listOfPosts);
         lv.setAdapter(ListedPosts);
+
+        //when user clicks on the book in the list of books, will go to the post's page
+        lv.setClickable(true);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected item text from ListView
+                Post p = (Post) parent.getItemAtPosition(position);
+                Intent i = new Intent(getApplicationContext(), UserPostProfile.class);
+                i.putExtra("currentPost", p);
+                startActivity(i);
+            }
+        });
 
         //when you click the post button, an intent is made and the screen will go to the post
         // activity
