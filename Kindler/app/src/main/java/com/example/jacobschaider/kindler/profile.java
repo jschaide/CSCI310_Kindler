@@ -1,29 +1,18 @@
 package com.example.jacobschaider.kindler;
 
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.net.URL;
 import java.util.ArrayList;
 
 public class profile extends AppCompatActivity {
@@ -46,6 +35,7 @@ public class profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        /************
         //connect to database
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("AllPosts/Posts");
@@ -67,15 +57,27 @@ public class profile extends AppCompatActivity {
         //Get username from database
         fAuth = FirebaseAuth.getInstance();
         usernameString = fAuth.getCurrentUser().getDisplayName();
-        TextView textView = (TextView) findViewById(R.id.username);
+
+         //get profile pic from database
+         profilePic = fAuth.getCurrentUser().getPhotoUrl();
+
+         //this is wrong
+         ImageView imageView = (ImageView) findViewById(R.id.profilepic);
+         imageView.setImageURI(profilePic);
+         ****************/
+
+        //HARD CODE
+        UserProfile me = new UserProfile("nataliep", "password", "nepearso@usc.edu");
+        usernameString = me.getUserName();
+        Post p1 = new Post("Harry Potter", me, 5);
+        p1.exchange = true;
+        Post p2 = new Post("Invisible Man", me, 6);
+        p2.sell =  true;
+        databasePosts.add(p1);
+        databasePosts.add(p2);
+
+        TextView textView = (TextView) findViewById(R.id.contact);
         textView.setText(usernameString);
-
-        //get profile pic from database
-        profilePic = fAuth.getCurrentUser().getPhotoUrl();
-        //this is wrong
-        ImageView imageView = (ImageView) findViewById(R.id.profilepic);
-        imageView.setImageURI(profilePic);
-
 
         //Get all the posts that the user has listed from database
         //set the list view to the new adapter

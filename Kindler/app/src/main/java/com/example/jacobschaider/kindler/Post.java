@@ -9,9 +9,17 @@ public class Post implements Serializable {
     public boolean exchange;
     public boolean sell;
     public String title;
-    public String owner;
+    public UserProfile owner;
+    public int price;
 
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+    public Post(String title, UserProfile owner, int price) {
+        exchange = false;
+        sell = false;
+        this.price = price;
+        this.owner = owner;
+    }
 
     public void addBookPost() {
 
@@ -22,6 +30,9 @@ public class Post implements Serializable {
     }
 
     public void removePost() {
+        //implement
+    }
+    public void showInterest() {
         //implement
     }
 }
