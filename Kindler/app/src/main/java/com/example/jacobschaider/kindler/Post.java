@@ -11,12 +11,25 @@ public class Post implements Serializable {
     public boolean exchange;
     public boolean sell;
     public String title;
-    public String owner;
+    public UserProfile owner;
+    public int price;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef = database.getReference();
+
+    public Post() {
+        exchange = false;
+        sell = false;
+    }
+
+    public Post(String title, UserProfile owner, int price) {
+        exchange = false;
+        sell = false;
+        this.price = price;
+        this.owner = owner;
+    }
 
     public void addBookPost() {
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
@@ -31,7 +44,8 @@ public class Post implements Serializable {
         //implement
     }
 
-    public void showInterest(FirebaseUser user) {
+    public void showInterest() {
+        //implement
 
     }
 }

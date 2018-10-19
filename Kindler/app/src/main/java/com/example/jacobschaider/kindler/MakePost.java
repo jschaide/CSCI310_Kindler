@@ -48,7 +48,7 @@ public class MakePost extends AppCompatActivity {
             post.exchange = true;
         }
         post.title = name;
-        post.owner = firebaseAuth.getCurrentUser().getDisplayName();
+        //post.owner = firebaseAuth.getCurrentUser().getDisplayName();
         post.addBookPost();
     }
 }

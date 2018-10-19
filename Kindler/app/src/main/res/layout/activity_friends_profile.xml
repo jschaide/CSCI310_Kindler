@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".profile">
 
+    <TextView
+        android:id="@+id/Username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="54dp" />
+
     <ListView
         android:id="@+id/listOfPosts"
         android:layout_width="500dp"
@@ -18,35 +26,23 @@
         android:layout_marginBottom="0dp" />
 
 
-    <ImageView
-        android:id="@+id/profilepic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/username"
-        android:layout_marginTop="-22dp"
-        android:layout_marginEnd="-2dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Books Listed"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="208dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="11dp"
         android:layout_marginLeft="11dp"
         android:layout_marginTop="180dp"
-        android:text="Books Listed" />
+         />
 
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp"
-        android:text="Username" />
+
 
 
 </RelativeLayout>
+
