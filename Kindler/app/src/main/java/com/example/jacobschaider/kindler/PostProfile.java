@@ -21,18 +21,24 @@ public class PostProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_profile);
 
+        //get the current post from the intent
         Intent currentI = getIntent();
         final Post currentPost = (Post)currentI.getSerializableExtra("currentPost");
 
+        //display the title of the books
         TextView bookTitle = (TextView) findViewById(R.id.bookTitle);
         bookTitle.setText(currentPost.title);
 
-        Button interested = (Button) findViewById(R.id.interested);
+        final Button interested = (Button) findViewById(R.id.interested);
         if(currentPost.sell) {
             //set the button to say BUY
+            CharSequence word = "BUY";
+            interested.setText(word);
         }
         else if (currentPost.exchange) {
             //set button to say EXCHANGE
+            CharSequence word = "EXCHANGE";
+            interested.setText(word);
         }
 
         interested.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +52,11 @@ public class PostProfile extends AppCompatActivity {
                     startActivity(i);
                 }
                 else {
-
+                    //set button to say INTERESTED
+                    CharSequence word = "Interested";
+                    interested.setText(word);
+                    //exchange book
+                    //currentPost.showInterest();
                 }
             }
         });

@@ -16,6 +16,7 @@ public class Sale extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sale);
 
+        //get seller and post from the intent
         Intent currentI = getIntent();
         UserProfile seller = (UserProfile)currentI.getSerializableExtra("seller");
         final Post currentPost = (Post)currentI.getSerializableExtra("currentPost");
@@ -38,7 +39,7 @@ public class Sale extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //change color of button and show contact info
+                //change color of button and show contact info after the customer confirms
                 congrats.setVisibility(View.VISIBLE);
                 contact.setVisibility(View.VISIBLE);
                 okay.setVisibility(View.VISIBLE);
@@ -53,6 +54,7 @@ public class Sale extends AppCompatActivity {
                 });
             }
         });
+        //changed their mind...didnt want to buy the book
         Button cancel = (Button) findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override

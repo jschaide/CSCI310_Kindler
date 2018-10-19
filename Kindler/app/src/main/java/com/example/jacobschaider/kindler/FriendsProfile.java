@@ -38,13 +38,10 @@ public class FriendsProfile extends AppCompatActivity {
         p1.exchange = true;
         Post p2 = new Post("To Kill a Mockingbird", currentUser, 10);
         p2.sell =  true;
+        databasePosts = new ArrayList<Post>();
         databasePosts.add(p1);
         databasePosts.add(p2);
 
-
-
-        TextView textView = (TextView) findViewById(R.id.Username);
-        textView.setText(usernameString);
 
         //Get all the posts that the user has listed from database
         //set the list view to the new adapter
