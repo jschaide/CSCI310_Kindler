@@ -76,11 +76,12 @@ public class profile extends AppCompatActivity {
         databasePosts.add(p1);
         databasePosts.add(p2);
 
+        //display username on the screen
         TextView textView = (TextView) findViewById(R.id.Username);
         textView.setText(usernameString);
 
         //Get all the posts that the user has listed from database
-        //set the list view to the new adapter
+        //set the list view to the new adapter to display data on screen
         ListedPosts = new ArrayAdapter<Post>(this, android.R.layout.simple_dropdown_item_1line, databasePosts);
         lv = (ListView) findViewById(R.id.listOfPosts);
         lv.setAdapter(ListedPosts);
@@ -93,6 +94,7 @@ public class profile extends AppCompatActivity {
                 // Get the selected item text from ListView
                 Post p = (Post) parent.getItemAtPosition(position);
                 Intent i = new Intent(getApplicationContext(), UserPostProfile.class);
+                //add the post in question to the intent so the UserPostProfile page can display it
                 i.putExtra("currentPost", p);
                 startActivity(i);
             }

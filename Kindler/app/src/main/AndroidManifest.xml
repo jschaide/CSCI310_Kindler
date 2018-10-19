@@ -19,13 +19,15 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+        />
         <activity
             android:name=".Signup"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".profile"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -41,12 +43,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PostProfile"
             android:theme="@style/AppTheme.NoActionBar" />
-<<<<<<< HEAD
-        <activity android:name=".FriendsProfile" />
-        <activity android:name=".PostProfile" />
         <activity android:name=".Sale"></activity>
-=======
->>>>>>> 0e17db4c8b643c18003dafad45a4fd79a9ce4677
     </application>
 
 </manifest>
