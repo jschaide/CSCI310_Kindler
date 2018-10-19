@@ -37,9 +37,16 @@ public class UserPostProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_post_profile);
 
+        /*************
         //gets the current post from the intent
         Intent currentI = getIntent();
         final Post currentPost = (Post) currentI.getSerializableExtra("currentPost");
+        *******/
+
+       //HARD CODE
+        Post currentPost = new Post();
+        currentPost.title = "harry potter";
+
 
         //display title of book
         TextView title = (TextView) findViewById(R.id.bookTitle);
@@ -69,6 +76,7 @@ public class UserPostProfile extends AppCompatActivity {
         //**************
         // hard coding
         UserProfile user = new UserProfile("natalie", "hello", "nepearso");
+        databaseUsers = new ArrayList<UserProfile>();
         databaseUsers.add(user);
         // **************
 
@@ -95,7 +103,7 @@ public class UserPostProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //remove post from database
-                currentPost.removePost();
+                //currentPost.removePost();
             }
         });
 
