@@ -31,12 +31,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".UserPostProfile"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:exported="true" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".MakePost"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".CreationPost"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true"/>
         <activity android:name=".FriendsProfile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PostProfile"
