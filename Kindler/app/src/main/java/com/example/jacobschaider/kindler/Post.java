@@ -1,5 +1,6 @@
 package com.example.jacobschaider.kindler;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -13,6 +14,11 @@ public class Post implements Serializable {
     public int price;
 
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+    public Post() {
+        exchange = false;
+        sell = false;
+    }
 
     public Post(String title, UserProfile owner, int price) {
         exchange = false;
@@ -32,7 +38,9 @@ public class Post implements Serializable {
     public void removePost() {
         //implement
     }
+
     public void showInterest() {
         //implement
+
     }
 }

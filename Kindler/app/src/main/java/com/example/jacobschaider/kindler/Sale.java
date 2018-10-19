@@ -1,7 +1,6 @@
 package com.example.jacobschaider.kindler;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +23,7 @@ public class Sale extends AppCompatActivity {
         //Set congrats and contact info to invisible until the customer confirms
         final TextView congrats = (TextView) findViewById(R.id.congrats);
         congrats.setVisibility(View.INVISIBLE);
-        final TextView contact = (TextView) findViewById(R.id.contact);
+        final TextView contact = (TextView) findViewById(R.id.Username);
         contact.setVisibility(View.INVISIBLE);
         final Button okay = (Button) findViewById(R.id.okay);
         okay.setVisibility(View.INVISIBLE);

@@ -37,6 +37,6 @@ public class UserProfile implements Serializable {
 
     public void addBookPost(Post post) {
         DatabaseReference postsRef = database.getReference("/AllPosts");
-        postsRef.child(post.owner).setValue(post);
+        //postsRef.child(post.owner).setValue(post);
     }
 }

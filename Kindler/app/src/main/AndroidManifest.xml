@@ -18,7 +18,6 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".MainActivity"
-            android:exported="true"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -32,16 +31,22 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".UserPostProfile"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".MakePost"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".CreationPost"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true"/>
+        <activity android:name=".FriendsProfile"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".MakePost"
+        <activity android:name=".PostProfile"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".CreationPost"
-            android:theme="@style/AppTheme.NoActionBar" />
+<<<<<<< HEAD
         <activity android:name=".FriendsProfile" />
         <activity android:name=".PostProfile" />
         <activity android:name=".Sale"></activity>
+=======
+>>>>>>> 0e17db4c8b643c18003dafad45a4fd79a9ce4677
     </application>
 
 </manifest>

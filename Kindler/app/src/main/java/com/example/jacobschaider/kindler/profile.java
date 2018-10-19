@@ -76,7 +76,7 @@ public class profile extends AppCompatActivity {
         databasePosts.add(p1);
         databasePosts.add(p2);
 
-        TextView textView = (TextView) findViewById(R.id.contact);
+        TextView textView = (TextView) findViewById(R.id.Username);
         textView.setText(usernameString);
 
         //Get all the posts that the user has listed from database

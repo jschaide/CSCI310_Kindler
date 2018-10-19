@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+
 public class FriendsProfile extends AppCompatActivity {
     //This page is when a logged in user views another users page. They can look at the users
     //username and picture as well as the list of books posted. If the user clicks on a book posted
@@ -25,26 +26,24 @@ public class FriendsProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends_profile);
+
+        //get current user from the intent
         Intent i = getIntent();
         currentUser = (UserProfile) i.getSerializableExtra("currentUser");
 
         //HARD CODE
         currentUser = new UserProfile("Jacob", "hello", "jacob@usc.edu");
         String usernameString = currentUser.getUserName();
-        Post p1 = new Post();
-        p1.title = "Hamlet";
+        Post p1 = new Post("Hamlet", currentUser, 7);
         p1.exchange = true;
-        p1.owner = currentUser;
-        Post p2 = new Post();
-        p2.title = "To Kill a Mockingbird";
+        Post p2 = new Post("To Kill a Mockingbird", currentUser, 10);
         p2.sell =  true;
-        p2.owner = currentUser;
         databasePosts.add(p1);
         databasePosts.add(p2);
 
 
 
-        TextView textView = (TextView) findViewById(R.id.contact);
+        TextView textView = (TextView) findViewById(R.id.Username);
         textView.setText(usernameString);
 
         //Get all the posts that the user has listed from database
@@ -53,6 +52,11 @@ public class FriendsProfile extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.listOfPosts);
         lv.setAdapter(ListedPosts);
 
+        //set username to the current user's username
+        TextView username = (TextView) findViewById(R.id.Username);
+        username.setText(currentUser.getUserName());
+
+
         //when user clicks on the book in the list of books, will go to the post's page
         lv.setClickable(true);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -60,10 +64,11 @@ public class FriendsProfile extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Get the selected item text from ListView
                 Post p = (Post) parent.getItemAtPosition(position);
-                Intent i = new Intent(getApplicationContext(), UserPostProfile.class);
+                Intent i = new Intent(getApplicationContext(), PostProfile.class);
                 i.putExtra("currentPost", p);
                 startActivity(i);
             }
         });
+
     }
 }
