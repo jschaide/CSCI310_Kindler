@@ -28,7 +28,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".UserPostProfile" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".UserPostProfile"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".MakePost"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".CreationPost"
