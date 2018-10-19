@@ -19,7 +19,7 @@ public class profile extends AppCompatActivity {
     private Button post;
     private String usernameString;
     private Uri profilePic;
-    private ArrayList<Post> databasePosts;
+    private ArrayList<Post> databasePosts = new ArrayList<Post>();
     private ArrayAdapter<Post> ListedPosts;
     private ListView lv;
     private FirebaseAuth fAuth;
