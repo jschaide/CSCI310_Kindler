@@ -40,7 +40,8 @@
             android:name=".CreationPost"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".FriendsProfile" />
-        <activity android:name=".PostProfile"></activity>
+        <activity android:name=".PostProfile" />
+        <activity android:name=".Sale"></activity>
     </application>
 
 </manifest>

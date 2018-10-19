@@ -6,4 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".FriendsProfile">
 
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <ListView
+        android:id="@+id/listOfPosts"
+        android:layout_width="368dp"
+        android:layout_height="260dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="243dp" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Books Listed"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="208dp" />
 </android.support.constraint.ConstraintLayout>

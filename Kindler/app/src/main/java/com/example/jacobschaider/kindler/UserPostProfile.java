@@ -68,8 +68,10 @@ public class UserPostProfile extends AppCompatActivity {
 
         //**************
         // hard coding
-        UserProfile user = new UserProfile("natalie", "hello", "nepearso");
+        UserProfile user = new UserProfile("Jacob", "hello", "jacob@usc.edu");
+        UserProfile user1 = new UserProfile("Bri", "pass", "bri@usc.edu");
         databaseUsers.add(user);
+        databaseUsers.add(user1);
         // **************
 
 
