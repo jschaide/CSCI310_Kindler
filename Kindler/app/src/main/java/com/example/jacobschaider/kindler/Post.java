@@ -20,4 +20,8 @@ public class Post implements Serializable {
         //postsRef.child(this.owner).setValue(this);
 
     }
+
+    public void removePost() {
+        //implement
+    }
 }

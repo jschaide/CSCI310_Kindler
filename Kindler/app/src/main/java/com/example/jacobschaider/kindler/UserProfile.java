@@ -3,9 +3,10 @@ package com.example.jacobschaider.kindler;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class UserProfile {
+public class UserProfile implements Serializable {
     private String userName;
     private String password;
     private String email;
