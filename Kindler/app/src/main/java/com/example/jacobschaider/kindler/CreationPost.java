@@ -10,15 +10,14 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.support.v7.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -31,6 +30,8 @@ public class CreationPost extends AppCompatActivity implements View.OnClickListe
     protected static ImageView ivImage;
     private static int RESULT_LOAD_IMG = 1;
     int REQUEST_CAMERA = 0, SELECT_FILE = 1;
+
+    // this is me adding random shit so I can re commit
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
