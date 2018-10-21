@@ -37,15 +37,11 @@ public class UserPostProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_post_profile);
 
-        /*************
+
         //gets the current post from the intent
         Intent currentI = getIntent();
         final Post currentPost = (Post) currentI.getSerializableExtra("currentPost");
-        *******/
 
-       //HARD CODE
-        Post currentPost = new Post();
-        currentPost.title = "harry potter";
 
 
         //display title of book
@@ -75,16 +71,20 @@ public class UserPostProfile extends AppCompatActivity {
 
         //**************
         // hard coding
-        UserProfile user = new UserProfile("natalie", "hello", "nepearso");
+        UserProfile user = new UserProfile("Jacob", "hello", "jacob@usc.edu");
+        UserProfile user1 = new UserProfile("Bri", "pass", "bri@usc.edu");
+
         databaseUsers = new ArrayList<UserProfile>();
         databaseUsers.add(user);
-        // **************
+        databaseUsers.add(user1);
+        // ************** end of hard coding
 
-
+        //set the arraylist into the adapter to display the data in the listview
         listOfUsers = new ArrayAdapter<UserProfile>(this, android.R.layout.simple_dropdown_item_1line, databaseUsers);
         lv = (ListView) findViewById(R.id.listOfInterestedUsers);
         lv.setAdapter(listOfUsers);
 
+        //when you click on a user, it takes you to the FriendsProfile page
         lv.setClickable(true);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -92,12 +92,14 @@ public class UserPostProfile extends AppCompatActivity {
                 // Get the selected item text from ListView
                 UserProfile up = (UserProfile) parent.getItemAtPosition(position);
                 Intent i = new Intent(getApplicationContext(), FriendsProfile.class);
+                //add extra so the FriendsProfile can know which user profile to display
                 i.putExtra("currentUser", up);
                 startActivity(i);
 
             }
         });
 
+        //user wants to delete one of their posts
         remove = (Button) findViewById(R.id.removePost);
         remove.setOnClickListener(new View.OnClickListener() {
             @Override

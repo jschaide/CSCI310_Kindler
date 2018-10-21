@@ -18,6 +18,7 @@ import android.widget.Spinner;
 import android.support.v7.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -59,7 +60,8 @@ public class CreationPost extends AppCompatActivity implements View.OnClickListe
             post.exchange = true;
         }
         post.title = name;
-        post.owner = firebaseAuth.getCurrentUser().getDisplayName();
+        UserProfile owner = new UserProfile(firebaseAuth.getCurrentUser().getDisplayName(), firebaseAuth.getCurrentUser().getUid(), firebaseAuth.getCurrentUser().getEmail());
+        post.owner = owner;
         post.addBookPost();
     }
 

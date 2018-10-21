@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "292708911555-a541blraf3adtev9lekk7lqgjkc6d6vf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jacobschaider.kindler",
+            "certificate_hash": "bec2dbaae07da091151442d63b69e48ec24182ec"
+          }
+        },
+        {
           "client_id": "292708911555-lla8qjg97cstv4dk0d2vl5m3t8iq3iqc.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292708911555-lla8qjg97cstv4dk0d2vl5m3t8iq3iqc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
