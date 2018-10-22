@@ -13,9 +13,11 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class profile extends AppCompatActivity {
+public class profile extends AppCompatActivity implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Button post;
     private String usernameString;
     private Uri profilePic;

@@ -26,8 +26,8 @@ public class PostProfile extends AppCompatActivity {
         final Post currentPost = (Post)currentI.getSerializableExtra("currentPost");
 
         //display the title of the books
-        TextView bookTitle = (TextView) findViewById(R.id.bookTitle);
-        bookTitle.setText(currentPost.title);
+        TextView bookTitle = (TextView) findViewById(R.id.bookPostTitle);
+        bookTitle.setText(/*currentPost.title*/"test");
 
         final Button interested = (Button) findViewById(R.id.interested);
         if(currentPost.sell) {

@@ -11,7 +11,7 @@ public class UserProfile implements Serializable {
     private String password;
     private String email;
     private ArrayList<Post> booksPosted = new ArrayList<Post>();
-    private final FirebaseDatabase database = FirebaseDatabase.getInstance();
+   // private final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     public UserProfile (String un, String p, String e) {
         this.userName = un;
@@ -36,7 +36,7 @@ public class UserProfile implements Serializable {
     }
 
     public void addBookPost(Post post) {
-        DatabaseReference postsRef = database.getReference("/AllPosts");
+       // DatabaseReference postsRef = database.getReference("/AllPosts");
         //postsRef.child(post.owner).setValue(post);
     }
 }

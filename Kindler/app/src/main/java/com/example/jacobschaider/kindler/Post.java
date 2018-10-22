@@ -1,23 +1,24 @@
 package com.example.jacobschaider.kindler;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.auth.FirebaseAuth;
+//import com.google.firebase.auth.FirebaseUser;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.Serializable;
 
 public class Post implements Serializable {
+    private static final long serialVersionUID = 1L;
     public boolean exchange;
     public boolean sell;
     public String title;
     public UserProfile owner;
     public int price;
 
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    private FirebaseAuth.AuthStateListener mAuthListener;
-    private DatabaseReference myRef = database.getReference();
+//    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+//    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+//    private FirebaseAuth.AuthStateListener mAuthListener;
+//    private DatabaseReference myRef = database.getReferencence();
 
     public Post() {
         exchange = false;
@@ -32,8 +33,8 @@ public class Post implements Serializable {
     }
 
     public void addBookPost() {
-        FirebaseUser firebaseUser = mAuth.getCurrentUser();
-        myRef.child(firebaseUser.getUid()).child("AllPosts").child("Posts").setValue(this);
+//        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+//        myRef.child("AllPosts").child("Posts").setValue(this);
 //        DatabaseReference postsRef = database.getReference().child("AllPosts");
 //        postsRef.setValue(this);
         //postsRef.child(this.owner).setValue(this);

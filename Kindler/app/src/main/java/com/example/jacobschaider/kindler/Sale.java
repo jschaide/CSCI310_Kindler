@@ -30,7 +30,7 @@ public class Sale extends AppCompatActivity {
         okay.setVisibility(View.INVISIBLE);
 
         //display the price and title of the book for the customer to confirm
-        TextView bookTitle = (TextView) findViewById(R.id.bookTitle);
+        TextView bookTitle = (TextView) findViewById(R.id.bkTitle);
         bookTitle.setText(currentPost.title);
         TextView price = (TextView) findViewById(R.id.price);
         price.setText("$" + currentPost.price);
