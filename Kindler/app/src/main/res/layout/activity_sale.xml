@@ -18,7 +18,7 @@
         tools:layout_editor_absoluteY="27dp" />
 
     <TextView
-        android:id="@+id/bookTitle"
+        android:id="@+id/bkTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -91,7 +91,7 @@
         android:id="@+id/okay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/bookTitle"
+        android:layout_alignStart="@+id/bkTitle"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="70dp"
         android:text="Okay" />
