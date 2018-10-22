@@ -40,6 +40,10 @@ public class Post implements Serializable {
 
     }
 
+    public void addBookTags(String [] tags) {
+        myRef.child("AllTags").child("Tags").setValue(tags);
+    }
+
     public void removePost() {
         //implement
     }

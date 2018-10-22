@@ -46,9 +46,9 @@
             tools:layout_editor_absoluteY="106dp" />
 
         <AutoCompleteTextView
+            android:id="@+id/tags"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/autoCompleteTextView1"
             android:layout_below="@+id/SpinnerFeedback"
             android:layout_marginTop="54dp"
             android:ems="10"

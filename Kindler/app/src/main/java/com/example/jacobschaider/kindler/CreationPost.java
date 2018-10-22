@@ -52,6 +52,12 @@ public class CreationPost extends AppCompatActivity implements View.OnClickListe
         final Spinner SpinnerFeedback = (Spinner) findViewById(R.id.SpinnerFeedback);
         String postType = SpinnerFeedback.getSelectedItem().toString();
 
+        final EditText tagsField = (EditText) findViewById(R.id.tags);
+        String fullTags = tagsField.getText().toString();
+        String tagsNoWhiteSpace = fullTags.replaceAll("\\s","");
+
+        String [] separateTags = tagsNoWhiteSpace.split(",");
+
         Post post = new Post();
         if (postType.equals("Sell")) {
             post.sell = true;
@@ -64,6 +70,7 @@ public class CreationPost extends AppCompatActivity implements View.OnClickListe
         UserProfile owner = new UserProfile(firebaseAuth.getCurrentUser().getDisplayName(), firebaseAuth.getCurrentUser().getUid(), firebaseAuth.getCurrentUser().getEmail());
         post.owner = owner;
         post.addBookPost();
+        post.addBookTags(separateTags);
     }
 
     private void selectImage() {
@@ -144,8 +151,6 @@ public class CreationPost extends AppCompatActivity implements View.OnClickListe
         }
         ivImage.setImageBitmap(thumbnail);
     }
-
-
 
     @Override
     public void onClick(View v) {
