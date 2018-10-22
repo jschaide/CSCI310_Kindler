@@ -69,8 +69,8 @@ public class profile extends AppCompatActivity implements Serializable {
          ****************/
 
         //HARD CODE
-        UserProfile me = new UserProfile("nataliep", "password", "nepearso@usc.edu");
-        usernameString = me.getUserName();
+        UserProfile me = new UserProfile( "nepearso@usc.edu", "password");
+        usernameString = me.getEmail();
         Post p1 = new Post("Harry Potter", me, 5);
         p1.exchange = true;
         Post p2 = new Post("Invisible Man", me, 6);
