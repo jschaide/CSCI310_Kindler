@@ -18,9 +18,11 @@
     <string name="title_activity_make_post">Create a Post</string>
     <string name="feedbacktitle">Add a book to either sell or exchange:</string>
     <string name="feedbackname">Post Title</string>
-    <string name="post_type">Select type of post</string>
+    <string name="post_type">Select type of post:</string>
     <string name="post_type1">Sale</string>
     <string name="post_type2">Exchange</string>
     <string name="action_settings">Settings</string>
-    <string name="tags">Add tags to your post separated by commas:</string>
+    <string name = "tag_description">Add tags to post:</string>
+    <string name="tags">Type tags here, separated by commas</string>
+    <string name="image">Book image</string>
 </resources>

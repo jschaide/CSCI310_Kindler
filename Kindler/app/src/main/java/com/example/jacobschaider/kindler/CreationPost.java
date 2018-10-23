@@ -11,6 +11,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,14 +28,15 @@ import java.io.IOException;
 
 public class CreationPost extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    protected static ImageView ivImage;
-    private static int RESULT_LOAD_IMG = 1;
+    //protected ImageView ivImage = (ImageView) findViewById(R.id.ivImage);
+
     int REQUEST_CAMERA = 0, SELECT_FILE = 1;
 
     // this is me adding random shit so I can re commit
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_creation_post);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -43,9 +45,12 @@ public class CreationPost extends AppCompatActivity implements View.OnClickListe
         button.setOnClickListener(this);
         Button photoButton = (Button) findViewById(R.id.SelectPhotoButton);
         photoButton.setOnClickListener(this);
+        Log.d("CREATION", "page is created");
+
     }
 
     public void sendFeedback() {
+
         final EditText titleField = (EditText) findViewById(R.id.EditTextName);
         String name = titleField.getText().toString();
 
@@ -71,9 +76,16 @@ public class CreationPost extends AppCompatActivity implements View.OnClickListe
         post.owner = owner;
         post.addBookPost();
         post.addBookTags(separateTags);
+
+        Intent i = new Intent(getApplicationContext(), profile.class);
+        Log.d("PROFILE", "moving to profile page");
+        startActivity(i);
+
     }
 
     private void selectImage() {
+
+        Log.d("CREATION", "image is being selected");
         final CharSequence[] items = { "Take Photo", "Choose from Library",
                 "Cancel" };
 
@@ -121,19 +133,34 @@ public class CreationPost extends AppCompatActivity implements View.OnClickListe
 
     @SuppressWarnings("deprecation")
     private void onSelectFromGalleryResult(Intent data) {
+        Log.d("SELECT", "select from gallery");
+
         Bitmap bm=null;
+        ImageView ivImage = (ImageView) findViewById(R.id.ivImage);
+
         if (data != null) {
+            Log.d("SELECT", "Data is not null");
+
             try {
                 bm = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), data.getData());
+                Log.d("SELECT", "bm is set");
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            ivImage.setImageBitmap(bm);
+            Log.d("SELECT", "image is set");
+
         }
-        ivImage.setImageBitmap(bm);
+
+        Log.d("SELECT", "done");
+
     }
 
     private void onCaptureImageResult(Intent data) {
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+        ImageView ivImage = (ImageView) findViewById(R.id.ivImage);
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
         File destination = new File(Environment.getExternalStorageDirectory(),

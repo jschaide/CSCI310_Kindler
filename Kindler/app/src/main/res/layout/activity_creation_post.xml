@@ -1,81 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
     tools:context=".CreationPost">
 
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="5dp">
+        android:padding="15dp">
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="381dp"
-            android:layout_height="52dp"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="14dp"
-            tools:layout_editor_absoluteY="16dp"
-            tools:text="Book to either sell or exchange:" />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@string/feedbacktitle" />
 
         <EditText
             android:id="@+id/EditTextName"
-            android:layout_width="352dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/SpinnerFeedback"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="-78dp"
+            android:layout_below="@+id/name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="14dp"
-            tools:layout_editor_absoluteY="61dp"
-            tools:text="Book Name" />
+            android:hint="@string/feedbackname"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/postType"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/EditTextName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:gravity="left"
+            android:text="@string/post_type"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/SpinnerFeedback"
-            android:layout_width="121dp"
-            android:layout_height="39dp"
-            android:layout_alignParentStart="true"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/postType"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="83dp"
-            android:entries="@array/posttypelist"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="106dp" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="132dp"
+            android:entries="@array/posttypelist" />
+
+        <TextView
+            android:id="@+id/tag_des"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SpinnerFeedback"
+            android:gravity="start"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@string/tag_description" />
 
         <AutoCompleteTextView
             android:id="@+id/tags"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SpinnerFeedback"
-            android:layout_marginTop="54dp"
+            android:layout_below="@+id/tag_des"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
             android:ems="10"
-            android:hint="@string/tags"/>
+            android:hint="@string/tags" />
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tags"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="17dp"
+            android:contentDescription="@string/image"
+            android:src="@drawable/ic_launcher_foreground" />
 
         <Button
             android:id="@+id/SelectPhotoButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/autoCompleteTextView1"
+            android:layout_below="@+id/ivImage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="17dp"
             android:text="Select Photo" />
 
-        <ImageView
-            android:id="@+id/ivImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_foreground"
-            android:layout_below="@+id/SelectPhotoButton"
-            />
 
         <Button
             android:id="@+id/PostBookButton"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ivImage"
-            android:layout_marginTop="130dp"
-            android:text="Post Book"
-            tools:text="Post Book" />
+            android:layout_below="@+id/SelectPhotoButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Post Book" />
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>
