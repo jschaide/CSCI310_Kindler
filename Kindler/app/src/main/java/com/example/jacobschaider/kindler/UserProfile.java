@@ -7,20 +7,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class UserProfile implements Serializable {
-    private String userName;
     private String password;
     private String email;
     private ArrayList<Post> booksPosted = new ArrayList<Post>();
    // private final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-    public UserProfile (String un, String p, String e) {
-        this.userName = un;
+    public UserProfile (String e, String p) {
         this.password = p;
         this.email = e;
-    }
-
-    public String getUserName() {
-        return this.userName;
     }
 
     public String getPassword() {

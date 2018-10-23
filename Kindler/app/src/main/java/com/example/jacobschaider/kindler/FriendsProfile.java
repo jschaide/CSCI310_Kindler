@@ -32,8 +32,8 @@ public class FriendsProfile extends AppCompatActivity {
         currentUser = (UserProfile) i.getSerializableExtra("currentUser");
 
         //HARD CODE
-        currentUser = new UserProfile("Jacob", "hello", "jacob@usc.edu");
-        String usernameString = currentUser.getUserName();
+        currentUser = new UserProfile("jacob@usc.edu", "hello");
+        String usernameString = currentUser.getEmail();
         Post p1 = new Post("Hamlet", currentUser, 7);
         p1.exchange = true;
         Post p2 = new Post("To Kill a Mockingbird", currentUser, 10);
@@ -51,7 +51,7 @@ public class FriendsProfile extends AppCompatActivity {
 
         //set username to the current user's username
         TextView username = (TextView) findViewById(R.id.Username);
-        username.setText(currentUser.getUserName());
+        username.setText(currentUser.getEmail());
 
 
         //when user clicks on the book in the list of books, will go to the post's page

@@ -72,7 +72,7 @@ public class CreationPost extends AppCompatActivity implements View.OnClickListe
             post.exchange = true;
         }
         post.title = name;
-        UserProfile owner = new UserProfile(firebaseAuth.getCurrentUser().getDisplayName(), firebaseAuth.getCurrentUser().getUid(), firebaseAuth.getCurrentUser().getEmail());
+        UserProfile owner = new UserProfile(firebaseAuth.getCurrentUser().getEmail(), firebaseAuth.getCurrentUser().getUid());
         post.owner = owner;
         post.addBookPost();
         post.addBookTags(separateTags);

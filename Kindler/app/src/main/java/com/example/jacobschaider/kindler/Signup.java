@@ -13,6 +13,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Signup extends AppCompatActivity implements View.OnClickListener {
     private Button buttonRegister;
@@ -20,6 +22,8 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
     private EditText editTextPassword;
     private ProgressDialog progressDialog;
     private FirebaseAuth fireBaseAuth;
+    private DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +40,8 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void registerUser() {
-        String email = editTextEmail.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
+        final String email = editTextEmail.getText().toString().trim();
+        final String password = editTextPassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)) {
             //Email empty
@@ -61,6 +65,8 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
                             // Start profile activity here
 //                            Toast toast = Toast.makeText(MainActivity.this, "Registered Successfully", Toast.LENGTH_SHORT);
 //                            toast.show();
+                            UserProfile currentUserProfile = new UserProfile(email, password);
+                            myRef.child("Users").setValue(currentUserProfile);
                         } else {
                             //Toast.makeText(MainActivity.this, "Registered Failed", Toast.LENGTH_SHORT).setVisible(true);
 //                            Toast toast = Toast.makeText(MainActivity.this, "Registered Failed", Toast.LENGTH_SHORT);
